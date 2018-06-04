@@ -1,9 +1,9 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
-import Header from './header';
-import Home from '../routes/home';
-import Profile from '../routes/profile';
+import Header from './header/Header';
+import Home from '../routes/home/Home';
+import Profile from '../routes/profile/Profile';
 // import Home from 'async!../routes/home';
 // import Profile from 'async!../routes/profile';
 
