@@ -1,0 +1,16 @@
+.split {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-rows: auto;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "splitOne splitTwo";
+}
+
+.splitOne {
+  grid-area: splitOne;
+  background-color: grey;
+}
+.splitTwo {
+  grid-area: splitTwo;
+}
