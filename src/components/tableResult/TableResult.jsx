@@ -1,21 +1,27 @@
 import { h } from 'preact';
 //import style from './style';
 
-const TableResult = ({ converted }) => {
+const TableResult = ({ converted, colsNum }) => {
   console.log(converted);
+  let hCols = [];
+  for(let i = 0; i < colsNum; i++) { hCols.push(i) };
+  
   if(Array.isArray(converted) === true) {
     return(
       <div>
         <table>
           <thead>
-            <th>col1</th>
-            <th>col2</th>
+            {hCols.map( (hd, iDx)=>{
+              return <th key={iDx}>col{hd + 1}</th>
+            })}
           </thead>
           <tbody>
-            {converted.map( (dt, index)=>{
+            {converted.map( (row, index)=>{
               return(
-                <tr key='index'>
-                  <td>{dt}</td>
+                <tr key={index}>
+                  {row.map( (cell, inx)=>{
+                    return <td key={inx + 'a'}>{cell}</td>
+                  })}
                 </tr>
             )})}
           </tbody>

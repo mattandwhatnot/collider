@@ -3,17 +3,30 @@ import { h } from 'preact';
 import TableResult from '../tableResult/TableResult';
 
 const DataWorkerWrap = ({ wip }) => {
-  console.log('worker says: ' + wip);
   
-  let result = [];
+  let tabled = [];
   if(!wip) {
     null;
   }else{
-    result = wip.split(/\s*,\s*/);
+    let assembled = [];
+    const splitRows = wip.split(/\s*\n\s*/);
+    for(let r of splitRows) {
+      let cut = r.split(/\s+|\s*,\s*|\s*;\s*|\s*!+\s*/);
+      assembled.push( cut );
+    }
+    tabled = assembled;
+  }
+  
+  const colsNum = Math.max( ...Array.from(tabled, x => x.length ) );
+  for(let r of tabled) {
+    let evenUp = colsNum - r.length;
+    for(let i = 0; i < evenUp; i++) {
+      r.push("");
+    }
   }
   
   return(
-    <TableResult converted={result} />
+    <TableResult converted={tabled} colsNum={colsNum} />
   );
 }
 
