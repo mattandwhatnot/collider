@@ -1,11 +1,12 @@
 import { h } from 'preact';
 //import style from './style';
 
-const TextPaste = ({ onInput }) => (
+const TextPaste = ({ name, onInput }) => (
   <div>
+    <p>{name}</p>
     <textarea
-      rows='20'
-      cols='50'
+      rows='15'
+      cols='70'
       onInput={onInput}></textarea>
   </div>
 );

@@ -4,6 +4,8 @@ import TableResult from '../tableResult/TableResult';
 
 const DataWorkerWrap = ({ wip }) => {
   
+  const ex = /,"|\s+"|,\s*"|"\s*,\s*|"\s*|",|\s+|\s*,\s*|\s*;\s*|\s*!+\s*/;
+  
   let tabled = [];
   if(!wip) {
     null;
@@ -11,7 +13,7 @@ const DataWorkerWrap = ({ wip }) => {
     let assembled = [];
     const splitRows = wip.split(/\s*\n\s*/);
     for(let r of splitRows) {
-      let cut = r.split(/\s+|\s*,\s*|\s*;\s*|\s*!+\s*/);
+      let cut = r.split( ex );
       assembled.push( cut );
     }
     tabled = assembled;
