@@ -2,7 +2,7 @@ import { h } from 'preact';
 //import style from './style';
 
 const TableResult = ({ converted, colsNum }) => {
-  console.log(converted);
+  //console.log(converted);
   let hCols = [];
   for(let i = 0; i < colsNum; i++) { hCols.push(i) };
   

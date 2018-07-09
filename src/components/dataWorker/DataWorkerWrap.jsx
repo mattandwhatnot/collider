@@ -2,7 +2,7 @@ import { h } from 'preact';
 //import style from './style';
 import TableResult from '../tableResult/TableResult';
 
-const DataWorkerWrap = ({ wip }) => {
+const DataWorkerWrap = ({ wip, onConvert }) => {
   
   const ex = /,"|\s+"|,\s*"|"\s*,\s*|"\s*|",|\s+|\s*,\s*|\s*;\s*|\s*!+\s*/;
   
@@ -28,7 +28,10 @@ const DataWorkerWrap = ({ wip }) => {
   }
   
   return(
-    <TableResult converted={tabled} colsNum={colsNum} />
+    <div>
+      <TableResult converted={tabled} colsNum={colsNum} />
+      <button onClick={()=>onConvert(tabled)}>Good, set</button>
+    </div>
   );
 }
 
